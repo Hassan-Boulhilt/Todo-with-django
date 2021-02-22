@@ -1,13 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content%}
-    <ul>
-        <li>
-            The todo name: {{todo.name}}<br/>
-            Th todo due date: {{todo.due_date}}
-            <a href="/{{todo.id}}/update">update</a>
-            <a href="/{{todo.id}}/delete">Delete</a>
-        </li>
-    
-    </ul>
+   
+<div class="col-4 offset-4">
+    <a class="btn btn-secondary mt-2" href="/">Go home</a>
+    <div class="card mt-3">
+        <div class="card-header  text-center">
+            <h4>{{todo.name}}</h4>            
+        </div>
+        <div class="card-body">
+            <p>It's due {{todo.due_date}}</p>
+        </div>
+        <div class="card-footer text-center">
+            <a href="/{{todo.id}}/update" class="btn btn-secondary">Edit</a>
+            <a href="/{{todo.id}}/delete" class="btn btn-secondary ">Delete</a>
+            
+        </div>
+
+    </div>
+</div>
+           
+      
 {% endblock%}

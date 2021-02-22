@@ -1,15 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content%}
-    <a href="/create"> Create Todo</a>
-    <ul>
-        {% for todo in todos %}
-            <li>
-            
-                    <p><a href="/{{todo.id}}" >{{ todo.name}}</a>, it's due {{todo.due_date}}</p>
-            
-            </li>
-        {% endfor%}
-    
-    </ul>
+        <div class="text-center">
+        <p>
+            {% if request.user.is_authenticated %}
+                Hello {{request.user.username}}
+            {% else %}
+                Helllo anonymous user
+            {% endif %}
+        </p>
+        <a class="btn btn-primary" href="/create"> Create Todo</a>
+        </div>
+        <div class="row ">
+            {% for todo in todos %}
+            <div class="col-4">
+                <div class="card mt-3">
+                    <div class="card-header  text-center">
+                        <h4>{{todo.name}}</h4>            
+                    </div>
+                    <div class="card-body">
+                        <p>It's due {{todo.due_date}}</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="/{{todo.id}}" class="btn btn-info btn-lg active" role="button" aria-pressed="true">View</a>
+                        
+                    </div>
+
+                </div>
+            </div>
+            {% endfor%}
+        </div>
+        
+        
 {% endblock%}

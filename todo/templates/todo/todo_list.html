@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content%}
+    <a href="/create"> Create Todo</a>
+    <ul>
+        {% for todo in todos %}
+            <li>
+            
+                    <p><a href="/{{todo.id}}" >{{ todo.name}}</a>, it's due {{todo.due_date}}</p>
+            
+            </li>
+        {% endfor%}
+    
+    </ul>
+{% endblock%}

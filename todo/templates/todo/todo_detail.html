@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content%}
+    <ul>
+        <li>
+            The todo name: {{todo.name}}<br/>
+            Th todo due date: {{todo.due_date}}
+            <a href="/{{todo.id}}/update">update</a>
+            <a href="/{{todo.id}}/delete">Delete</a>
+        </li>
+    
+    </ul>
+{% endblock%}
